@@ -2,3 +2,17 @@ extends layout
 
 block content
   h1= title
+  -
+    const results = [
+      { model: "Monitor 1", screen_size: 24, price: 199.99 },
+      { model: "Monitor 2", screen_size: 27, price: 249.99 },
+      { model: "Monitor 3", screen_size: 32, price: 299.99 }
+    ];
+  .container-fluid
+  .row
+    - results.forEach((monitor) => {
+      .col-sm-2
+        h4= monitor.model
+        p Screen Size: #{monitor.screen_size} inches
+        p Price: $#{monitor.price}
+    - });

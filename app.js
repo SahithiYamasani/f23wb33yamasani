@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var monitorsRouter = require('./routes/monitor');
 var boardRouter = require('./routes/board');
+var chooseRouter = require('./routes/choose');
 var app = express();
 
 // view engine setup
@@ -24,15 +25,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/monitor', monitorsRouter);
 app.use('/board', boardRouter);
+app.use('/choose', chooseRouter);
 
-/*
-app.get('/board', (req, res) => {
-  let query = req.query;
-  console.log(`rows: ${query.rows}`);
-  console.log(`cols: ${query.cols}`);
-  res.render('board', { title: 'Board Display', query: query });
-});
-*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

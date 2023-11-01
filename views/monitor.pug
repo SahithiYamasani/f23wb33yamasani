@@ -10,9 +10,14 @@ block content
     ];
   .container-fluid
   .row
-    - results.forEach((monitor) => {
+    - for (let i = 0; i < results.length; i++)
       .col-sm-2
-        h4= monitor.model
-        p Screen Size: #{monitor.screen_size} inches
-        p Price: $#{monitor.price}
-    - });
+        h4= results[i].model
+        h3(onclick=`buy(${i})`) BUY
+        p Screen Size: #{results[i].screen_size} inches
+        p Price: $#{results[i].price}
+
+  script.
+      function buy(index) {
+        alert("You purchased item " + index);
+      }
